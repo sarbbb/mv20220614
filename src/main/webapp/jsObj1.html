@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Javascript Object</title>
+</head>
+<body>
+<button onclick="create()">Create</button>
+<button onclick="parse()">Parse</button>
+<div  id="msg"></div>
+<script>
+      function create(){
+    	  var obj  =new Object();
+    	  obj.userName="Alan";
+    	  obj.phone="23826015";
+    	  obj.password="1234";
+    	  obj.age=20;
+    	  obj.married=false;
+    	  var st=JSON.stringify(obj);
+    	  var d=document.getElementById("msg");
+    	  d.innerHTML="<h2>"+st+"</h2>";
+      }
+      function parse(){
+    	  var str='{"userName":"Alan","phone":"23826015","password":"1234","age":20}';
+    	  var obj=JSON.parse(str);
+    	  var d=document.getElementById("msg");
+    	  d.innerHTML="<h2>"+obj.userName+","+obj.phone+","+obj.password+","+obj.age+"</h2>";
+      }
+</script>
+</body>
+</html>

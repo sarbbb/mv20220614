@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>User Info</title>
+</head>
+<body>
+User Name:<input type="text" id="userName"  value="Annie"/><br/>
+Phone:<input type="text" id="phone"  value="02-23826015"/><br/>
+Password:<input type="text" id="password"  value="a123"/><br/>
+Age:<input type="text" id="age"  value="20"/><br/>
+<button onclick="addToArray()">Add to Array</button>
+
+<form action="UserJsonServlet2" method="post">
+     <input type="hidden"  name="jstring2" id="jstring2"/>
+     <button onclick="return show('jstring2')">Send Array</button>
+</form>
+
+<div  id="msg"></div>
+<script>
+      var data=[];
+      function addToArray(){
+    	  var obj  =new Object();
+    	  obj.userName=document.getElementById("userName").value;
+    	  obj.phone=document.getElementById("phone").value;
+    	  obj.password=document.getElementById("password").value;
+    	  var a=document.getElementById("age").value;
+    	  obj.age=parseInt(a);
+    	  data.push(obj);
+    	  var st=JSON.stringify(data);
+    	  var d=document.getElementById("msg");
+    	  d.innerHTML="<h2>"+st+"</h2>";
+    	  document.getElementById("jstring2").value=st;
+      } 
+      function show(s){
+    	  var s=document.getElementById(s).value;
+    	  alert(s);
+    	  return true;
+      }
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Book Array JSON</title>
+</head>
+<body>
+<button onclick="create_book()">Add</button>
+<button onclick="display()">Display JSON Array</button><br/>
+ID:<input type="text" id="bid" value="B001"/><br/>
+Language:<input type="text" id="language" value="Chinese"/><br/>
+Edition:<input type="text" id="edition" value="1"/><br/>
+Author:<input type="text" id="author" value="Brendon"/><br/>
+<div id="div1"></div>
+<script>
+      var bookArray=[ ];
+      function create_book(){
+    	  var bid=document.getElementById("bid").value;
+    	  var lang=document.getElementById("language").value;
+    	  var ed=document.getElementById("edition").value;
+    	  var auth=document.getElementById("author").value;
+    	  var obj=new Object();
+    	  obj.id=bid;
+    	  obj.language=lang;
+    	  obj.edition=ed;
+    	  obj.author=auth;
+    	  bookArray.push(obj);
+    	  alert("已加入!!");
+      }
+      function display(){
+    	  var str=JSON.stringify(bookArray);
+    	  var div=document.getElementById("div1");
+    	  div.innerHTML="<h2>"+str+"</h2>";
+      }
+</script>
+</body>
+</html>

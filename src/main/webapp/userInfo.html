@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>User Info</title>
+</head>
+<body>
+User Name:<input type="text" id="userName"  value="Annie"/><br/>
+Phone:<input type="text" id="phone"  value="02-23826015"/><br/>
+Password:<input type="text" id="password"  value="a123"/><br/>
+Age:<input type="text" id="age"  value="20"/><br/>
+<button onclick="create()">Create</button>
+
+<form action="UserJsonServlet" method="post">
+     <input type="hidden"  name="jstring" id="jstring"/>
+     <button onclick="return show()">Send</button>
+</form>
+<div  id="msg"></div>
+<script>
+      function create(){
+    	  var obj  =new Object();
+    	  obj.userName=document.getElementById("userName").value;
+    	  obj.phone=document.getElementById("phone").value;
+    	  obj.password=document.getElementById("password").value;
+    	  var a=document.getElementById("age").value;
+    	  obj.age=parseInt(a);
+    	  var st=JSON.stringify(obj);
+    	  var d=document.getElementById("msg");
+    	  d.innerHTML="<h2>"+st+"</h2>";
+    	  document.getElementById("jstring").value=st;
+      }
+      function show(){
+    	  var s=document.getElementById("jstring").value;
+    	  alert(s);
+    	  return true;
+      }
+</script>
+</body>
+</html>
